@@ -1,5 +1,6 @@
 import os
 import shutil
+#Provided Path from user
 PATH = r'{type your path here}'
 EXCLUDE = ['Images', 'PDFs', 'GIFs', 'Installers','Others', 'All Folders']
 
