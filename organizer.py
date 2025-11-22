@@ -1,7 +1,7 @@
 import os
 import shutil
-PATH = r'{type your path here}'
-EXCLUDE = ['Images', 'PDFs', 'GIFs', 'Installers','Others', 'All Folders']
+PATH = r'type your path here'
+EXCLUDE = ['Images', 'PDFs', 'GIFs', 'Installers','Others', 'All Folders', "Mini Project Repo", "Audios", "Videos"]
 
 #r means it is raw string
 for filename in os.listdir(PATH): # for each foldername in path list directory
@@ -20,7 +20,7 @@ for filename in os.listdir(PATH): # for each foldername in path list directory
         shutil.move(location, os.path.join(newfolder, filename))
         print(f"{filename} Moved to {newfolder}")
         continue
-    if filename.endswith(".png") or filename.endswith('.jpeg') or filename.endswith('.jpg'):
+    if filename.endswith(".png") or filename.endswith('.jpeg') or filename.endswith('.jpg') or filename.endswith('.tiff') or filename.endswith('.bmp'):
         newfolder = os.path.join(PATH, "Images")
         if not os.path.exists(newfolder):
             os.makedirs(newfolder)
@@ -38,8 +38,20 @@ for filename in os.listdir(PATH): # for each foldername in path list directory
             os.makedirs(newfolder)
         shutil.move(location, os.path.join(newfolder, filename))
         print(f"{filename} Moved to {newfolder}")
-    elif filename.endswith(".exe"):
+    elif filename.endswith(".exe") or filename.endswith('.msi'):
         newfolder = os.path.join(PATH, "Installers")
+        if not os.path.exists(newfolder):
+            os.makedirs(newfolder)
+        shutil.move(location, os.path.join(newfolder, filename))
+        print(f"{filename} Moved to {newfolder}")
+    elif filename.endswith(".mp3") or filename.endswith('.wav') or filename.endswith('.m4a') or filename.endswith('.wma'):
+        newfolder = os.path.join(PATH, "Audios")
+        if not os.path.exists(newfolder):
+            os.makedirs(newfolder)
+        shutil.move(location, os.path.join(newfolder, filename))
+        print(f"{filename} Moved to {newfolder}")
+    elif filename.endswith(".mp4") or filename.endswith('.mov') or filename.endswith('.avi') or filename.endswith('.wmv'):
+        newfolder = os.path.join(PATH, "Videos")
         if not os.path.exists(newfolder):
             os.makedirs(newfolder)
         shutil.move(location, os.path.join(newfolder, filename))
