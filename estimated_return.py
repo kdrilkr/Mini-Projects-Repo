@@ -1,6 +1,6 @@
 import time
 def selection():
-
+#main selection.
     text = (
         '1 - Estimated Return of S&P500 ETFs\n'
         '2 - Estimated Return of Turkish ISB ETFs: '
